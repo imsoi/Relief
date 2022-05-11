@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kr.ac.kopo.dao.NoticeDao;
 import kr.ac.kopo.model.Notice;
+import kr.ac.kopo.util.Pager;
 
 @Service
 public class NoticeServiceImpl implements NoticeService {
@@ -15,8 +16,16 @@ public class NoticeServiceImpl implements NoticeService {
 	NoticeDao dao;
 	
 	@Override
-	public List<Notice> list() {
-		return dao.list();
+	public List<Notice> list(Pager pager) {
+		if(pager.getKeyword() != null)
+			pager.setSearch(1);
+		else
+			pager.setSearch(0);
+		
+		int total = dao.total(pager);
+		pager.setTotal(total);
+		
+		return dao.list(pager);
 	}
 
 	@Override

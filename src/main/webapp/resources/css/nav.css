@@ -17,19 +17,37 @@
 .nav{
 	display: flex;
 	justify-content: flex-end;
-	width:calc(1200px - 200px);
+/* 	width:calc(1200px - 200px); */
 	line-height: 86px;
+	margin-left: 515px;
 }
 .nav > li {
-	margin-left:100px;
+	margin-left:60px;
 	list-style: none;
 }
 
-.nav > li > a {
-  color:black;
-  text-decoration: none;
+nav > li > a {
+ color:black;
+
+ }
+ .nav > li > a:hover{
+     color: rgb(136, 136, 136);
+ }
+.logo {
+  font-family: 'Fredoka One', cursive;
+  margin-left: 20px;
+  
+}   
+a{
+  text-decoration-line: none;
+  color: black;
 }
 
 
+/* footer 해당사항
+a :hover{
+  color: white;
+}
 
+ */
 

@@ -6,31 +6,24 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/resources/css/nav.css">
 <link rel="stylesheet" type= "text/css" href="/resources/css/notice.css">
 
 <title></title>
-
-	<script>
-	function removeCheck(item) {
-		 if (confirm("정말 삭제하시겠습니까")){ 
-			// let url = location.href.replace("view","delete");
-			 location.href = location.href.replace("view","delete");
-		 }
-		}
-	</script>
 </head>
 
 <body>
 	<div class="header">
-		<h2><a href = "/" >RELIEF</a></h2>
+		<h2 class="logo"><a href = "/" style="color: #4c4c4c;">RELIEF</a></h2>
 			<ul class="nav">
 				<li><a href = "/serviceindex">릴리프 서비스</a></li>
 				<li><a href = "/introduceindex">릴리프 소개</a></li>
 				<li><a href = "/test/list">테스트하기</a></li>
 				<li><a href = "/notice/list">공지사항</a></li>
-				<li><a href = "/mypage/list">마이페이지</a></li>
+				<li style="margin-left: 520px"><a href="/login">로그인</a></li>
+            	<li><a href="/signup">회원가입</a></li>
 			</ul>
 	</div>
 
@@ -47,8 +40,8 @@
 				<div class="search-window">
 					<form action="">
 						<div class="search-wrap">
-						    <label for="search" class="blind">공지사항 내용 검색</label>
-						    <input id="search" type="search" name="" placeholder="검색어를 입력해주세요." value="">
+<!-- 						    <label for="search" class="blind">공지사항 내용 검색</label> -->
+						    <input id="search" type="text" name="keyword" placeholder="검색어를 입력해주세요." value="${pager.keyword}">
 						    <button type="submit" class="btn btn-dark">검색</button>
 						</div>
 					</form>
@@ -85,6 +78,25 @@
 							</tr>
 						</c:if>
 					</tbody>
+					
+					<tfoot>
+						<tr>
+							<td colspan="7">
+								<div class="pagination justify-content-center">							
+									<div class="page-item"><a href="?page=1&${pager.query}" class="page-link">처음</a></div>
+									<div class="page-item"><a href="?page=${pager.prev}&${pager.query}" class="page-link">이전</a></div>		
+														
+									<c:forEach var="page" items="${pager.list}">
+										<div class="page-item ${page == pager.page ? 'active' : ''}"><a href="?page=${page}&${pager.query}" class="page-link">${page}</a></div>
+									</c:forEach>
+									
+									<div class="page-item"><a href="?page=${pager.next}&${pager.query}" class="page-link">다음</a></div>
+									<div class="page-item"><a href="?page=${pager.last}&${pager.query}" class="page-link">마지막</a></div>							
+								</div>
+							</td>
+						</tr>
+					</tfoot>
+					
 				</table>
 					
 				<div style="margin-top: 20px">

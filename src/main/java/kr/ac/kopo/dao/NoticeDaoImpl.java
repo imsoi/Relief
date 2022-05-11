@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.ac.kopo.model.Notice;
+import kr.ac.kopo.util.Pager;
 
 @Repository
 public class NoticeDaoImpl implements NoticeDao {
@@ -15,8 +16,8 @@ public class NoticeDaoImpl implements NoticeDao {
 	SqlSession sql;
 	
 	@Override
-	public List<Notice> list() {
-		return sql.selectList("notice.list");
+	public List<Notice> list(Pager pager) {
+		return sql.selectList("notice.list", pager);
 	}
 
 	@Override
@@ -37,7 +38,11 @@ public class NoticeDaoImpl implements NoticeDao {
 	@Override
 	public void delete(int ncode) {
 		sql.delete("notice.delete", ncode);
-		
+	}
+
+	@Override
+	public int total(Pager pager) {
+		return sql.selectOne("notice.total", pager);
 	}
 
 }

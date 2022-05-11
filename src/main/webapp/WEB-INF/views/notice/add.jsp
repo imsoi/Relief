@@ -12,14 +12,15 @@
 </head>
 <body>
 	<div class="header">
-   		<h2><a href = "/" >RELIEF</a></h2>
-       		<ul class="nav">
-	           	<li><a href = "/serviceindex">릴리프 서비스</a></li>
+		<h2 class="logo"><a href = "/" style="color: #4c4c4c;">RELIEF</a></h2>
+			<ul class="nav">
+				<li><a href = "/serviceindex">릴리프 서비스</a></li>
 				<li><a href = "/introduceindex">릴리프 소개</a></li>
 				<li><a href = "/test/list">테스트하기</a></li>
 				<li><a href = "/notice/list">공지사항</a></li>
-				<li><a href = "/mypage/list">마이페이지</a></li>
-           </ul>
+				<li style="margin-left: 520px"><a href="/login">로그인</a></li>
+            	<li><a href="/signup">회원가입</a></li>
+			</ul>
 	</div>
 
 	<article>

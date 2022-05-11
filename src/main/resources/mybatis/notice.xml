@@ -3,8 +3,23 @@
 
 <mapper namespace = "notice">
 
+	<sql id="search">
+		<where>		
+			<if test="search == 1">
+				title LIKE CONCAT(CONCAT('%', #{keyword}), '%')
+			</if>
+		</where>
+	</sql>
+
 	<select id = "list" resultType="notice">
 		SELECT * FROM notice
+	<include refid="search"></include> 
+		LIMIT #{offset}, #{perPage}
+	</select>
+	
+	<select id="total" resultType="Integer">
+		SELECT COUNT(*) FROM notice
+	<include refid="search"></include>   <!-- 안해주면 검색했을 때 list값 있는 만큼 페이지 번호가 다 나옴 -->
 	</select>
 	
 	<select id="item" resultType="notice">

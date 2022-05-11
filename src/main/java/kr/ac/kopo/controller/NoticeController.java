@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.ac.kopo.model.Notice;
 import kr.ac.kopo.service.NoticeService;
+import kr.ac.kopo.util.Pager;
 
 @Controller
 @RequestMapping("/notice")
@@ -22,8 +23,8 @@ public class NoticeController {
 	NoticeService service;
 	
 	@RequestMapping({"/", "/list"})
-	public String list(Model model) {
-		List<Notice> list = service.list();
+	public String list(Model model, Pager pager) {
+		List<Notice> list = service.list(pager);
 		
 		model.addAttribute("list", list);
 		

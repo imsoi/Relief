@@ -18,6 +18,7 @@
 			<li><a href = "/notice/list">공지사항</a></li>
 			<li><a href="/login">로그인</a></li>
 		    <li><a href="/signup">회원가입</a></li>
+		    <li><a href = "/mypage/list">공지사항</a></li>
           </ul>
 	</div>
 </body>
