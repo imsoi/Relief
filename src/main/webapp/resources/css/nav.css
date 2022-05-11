@@ -1,0 +1,35 @@
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+} 
+
+.header{
+	 width:auto;
+	 display:flex;
+	 height: 86px;
+}
+
+.header h2 {
+	 margin-top: 20px;
+	 color: navy;
+	 font-weight: bold;
+}
+
+.nav{
+	display: flex;
+	justify-content: flex-end;
+	width:calc(1200px - 200px);
+	line-height: 86px;
+}
+.nav > li {
+	margin-left:100px;
+	list-style: none;
+}
+
+.nav > li > a {
+  color:black;
+  text-decoration: none;
+}
+
+
+
+

@@ -4,18 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
-
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="/resources/css/sub.css">
-
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/resources/css/nav.css">
+<link rel="stylesheet" type= "text/css" href="/resources/css/notice.css">
+<title></title>
 </head>
 <body>
-	<div class="header" style="padding-left: 20px">
+	<div class="header">
    		<h2><a href = "/" >RELIEF</a></h2>
-       		<ul class="nav" style="text-align: center; margin-left: 400px">
+       		<ul class="nav">
 	           	<li><a href = "/serviceindex">릴리프 서비스</a></li>
 				<li><a href = "/introduceindex">릴리프 소개</a></li>
 				<li><a href = "/test/list">테스트하기</a></li>
@@ -24,20 +22,25 @@
            </ul>
 	</div>
 
-
 	<article>
-		<div class="container" style="padding-top: 70px">
-			<h2 style="text-align: center;">공지사항 등록</h2>
+		<section class="notice">
+		<div class="page-title">
+			<div class="container">
+			    <h3>공지사항</h3>
+			</div>
+		 </div>
+	
+		<div class="container">
 			<form method="post">
-			<div class="mb-3" style="margin-top: 70px">
+			<div class="mb-3">
 				<label>제목</label> 
 				<input type="text" class="form-control" name="title" placeholder="제목을 입력해 주세요">
 			</div>
 
-			<div class="mb-3">
+		<!-- 	<div class="mb-3">
 				<label>작성자</label> 
 				<input type="text" class="form-control" name="admin" value="관리자" readonly="readonly" style="background-color: white;">
-			</div>
+			</div> -->
 
 			<div class="mb-3">
 				<label>내용</label>
@@ -51,6 +54,7 @@
 			<%-- <input type="hidden" name="cAdminId" value ="${sessionScope.member.state}"> --%>
 			</form>
 		</div>
+		</section>
 	</article>
 </body>
 </html>

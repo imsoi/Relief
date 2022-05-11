@@ -5,48 +5,44 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
-
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="/resources/css/sub.css">
-	<script>
-	function removeCheck(item) {
-		
-		 if (confirm("정말 삭제하시겠습니까")){ 
-			// let url = location.href.replace("view","delete");
-			 location.href = location.href.replace("view","delete");
-			
-		 }
-		}
-	</script>
-
+<link rel="stylesheet" type="text/css" href="/resources/css/nav.css">
+<link rel="stylesheet" type= "text/css" href="/resources/css/notice.css">
+<title></title>
 </head>
 <body>
-	<div class="header" style="padding-left: 20px">
-   		<h2><a href = "/" >RELIEF</a></h2>
-       		<ul class="nav" style="text-align: center; margin-left: 200px">
-	           	<li><a href = "/serviceindex">릴리프 서비스</a></li>
-				<li><a href = "/introduceindex">릴리프 소개</a></li>
-				<li><a href = "/test/list">테스트하기</a></li>
-				<li><a href = "/notice/list">공지사항</a></li>
-				<li><a href = "/mypage/list">마이페이지</a></li>
-           </ul>
+
+	<div class="header">
+  		<h2><a href = "/" >RELIEF</a></h2>
+      		<ul class="nav">
+           	<li><a href = "/serviceindex">릴리프 서비스</a></li>
+			<li><a href = "/introduceindex">릴리프 소개</a></li>
+			<li><a href = "/test/list">테스트하기</a></li>
+			<li><a href = "/notice/list">공지사항</a></li>
+			<li><a href = "/mypage/list">마이페이지</a></li>
+          </ul>
 	</div>
 
 	<article>
-		<div class="container" role="main" style="padding-top: 70px">
-			<h2 style="text-align: center;">공지사항</h2>
-			<form>
-			<div class="mb-3" style="margin-top: 70px">
+		<section class="notice">
+		<div class="page-title">
+			<div class="container">
+			    <h3>공지사항</h3>
+			</div>
+		 </div>
+	
+		<div class="container">
+			<form method="post">
+			<div class="mb-3">
 				<label>제목</label> 
 				<input value="${item.title}" class="form-control" name="title" readonly="readonly" style="background-color: white;">
 			</div>
 
-			<div class="mb-3">
+<!-- 			<div class="mb-3">
 				<label>작성자</label> 
 				<input type="text" class="form-control" name="admin" value="관리자" readonly="readonly" style="background-color: white;">
-			</div>
+			</div> -->
 
 			<div class="mb-3">
 				<label>내용</label>
@@ -61,6 +57,7 @@
 			<a href="../update/${item.ncode}" class="btn btn-sm btn-dark">변경</a>
 			<button onClick="removeCheck(${item.ncode})" class="btn btn-sm btn-dark">삭제</button>
 		</div>
+		</section>
 	</article>
 </body>
 </html>
