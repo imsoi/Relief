@@ -1,4 +1,4 @@
-package kr.ac.kopo.model;
+package kr.ac.kopo.relief.model;
 
 import java.util.Date;
 

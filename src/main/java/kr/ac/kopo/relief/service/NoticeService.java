@@ -1,11 +1,11 @@
-package kr.ac.kopo.dao;
+package kr.ac.kopo.relief.service;
 
 import java.util.List;
 
-import kr.ac.kopo.model.Notice;
-import kr.ac.kopo.util.Pager;
+import kr.ac.kopo.relief.model.Notice;
+import kr.ac.kopo.relief.util.Pager;
 
-public interface NoticeDao {
+public interface NoticeService {
 
 	List<Notice> list(Pager pager);
 
@@ -16,7 +16,5 @@ public interface NoticeDao {
 	void update(Notice item);
 
 	void delete(int ncode);
-
-	int total(Pager pager);
 
 }

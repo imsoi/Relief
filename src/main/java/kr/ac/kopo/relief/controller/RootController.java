@@ -1,4 +1,4 @@
-package kr.ac.kopo.controller;
+package kr.ac.kopo.relief.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

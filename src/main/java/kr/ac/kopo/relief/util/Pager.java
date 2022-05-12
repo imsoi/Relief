@@ -1,4 +1,4 @@
-package kr.ac.kopo.util;
+package kr.ac.kopo.relief.util;
 
 import java.util.ArrayList;
 import java.util.List;

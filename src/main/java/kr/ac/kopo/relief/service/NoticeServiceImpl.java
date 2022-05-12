@@ -1,13 +1,13 @@
-package kr.ac.kopo.service;
+package kr.ac.kopo.relief.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.ac.kopo.dao.NoticeDao;
-import kr.ac.kopo.model.Notice;
-import kr.ac.kopo.util.Pager;
+import kr.ac.kopo.relief.dao.NoticeDao;
+import kr.ac.kopo.relief.model.Notice;
+import kr.ac.kopo.relief.util.Pager;
 
 @Service
 public class NoticeServiceImpl implements NoticeService {

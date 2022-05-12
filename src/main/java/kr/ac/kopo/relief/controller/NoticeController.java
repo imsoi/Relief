@@ -1,4 +1,4 @@
-package kr.ac.kopo.controller;
+package kr.ac.kopo.relief.controller;
 
 import java.util.List;
 
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import kr.ac.kopo.model.Notice;
-import kr.ac.kopo.service.NoticeService;
-import kr.ac.kopo.util.Pager;
+import kr.ac.kopo.relief.model.Notice;
+import kr.ac.kopo.relief.service.NoticeService;
+import kr.ac.kopo.relief.util.Pager;
 
 @Controller
 @RequestMapping("/notice")
