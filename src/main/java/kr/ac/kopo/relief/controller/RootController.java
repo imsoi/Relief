@@ -24,6 +24,11 @@ public class RootController {
       return "index";
    }
    
+   @RequestMapping("/qna")
+   public String qna() {
+	   return "qna";
+   }
+   
    @RequestMapping("/introduce")
    public String introduce() {
       return "introduce";

@@ -24,7 +24,7 @@
       		<ul class="nav">
            	<li><a href = "/service">릴리프 서비스</a></li>
 			<li><a href = "/introduce">릴리프 소개</a></li>
-			<li><a href = "/test/list">테스트하기</a></li>
+			<li><a href = "/qna">테스트하기</a></li>
 			<li><a href = "/notice/list">공지사항</a></li>
           </ul>
           
@@ -33,10 +33,10 @@
 					${sessionScope.member.name} 님 환영합니다 !
 				</div>
 				<div>
-					<a href="/profile">마이페이지</a>
+					<a href="/profile" >마이페이지</a>
 				</div>
 				<div>
-					<a href="/logout">로그아웃</a>
+					<a href="/logout" style="color: black;">로그아웃</a>
 				</div>
 		</c:if>
 		
@@ -64,7 +64,7 @@
 
     <span class="prg">
         <h3>기업용 복지 프로그램</h3>
-        <p style="font-weight:500";>업무능률도 오르고 생산성도<br>
+        <p style="font-weight:500;">업무능률도 오르고 생산성도<br>
         높아져 기업과 개인 모두가<br>
         만족하는 프로그램 입니다!</p>
         <button>테스트 하러 가기</button>
@@ -77,7 +77,7 @@
  <div>
         <img src="/resources/images/1.png" class="img4">
         <h2><span style="color: #ffdd00;">릴리프,</span> 무엇이 특별한가요?</h2>
-        <p style="font-weight:500";>릴리프만의 서비스</p>
+        <p style="font-weight:500;">릴리프만의 서비스</p>
         <img src="/resources/images/index2.png" class="mx-auto my-4 py-3">
     </div>
 </section>

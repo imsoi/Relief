@@ -1,0 +1,122 @@
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
+    /*background-color: rgb(210, 229, 255);*/
+}
+.mmain{
+    background-color: rgb(210, 229, 255);
+    padding-top: 20px;
+    height: 890px;
+}
+#main {
+    /*background-color: white;*/
+    text-align: center;
+    font-size: 1.5em;
+}
+#qna{
+    display: none;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1;}
+}
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0;}
+}
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1;}
+}
+@-webkit-keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0;}
+}
+.qBox {
+    font-size: 1.8em;;
+    background-color: white;
+    text-align: center;
+    border-radius: 5px;
+    width: 80%;
+    
+}
+.answerList {
+   font-size: 1.3em;
+   font-weight: bold;
+   background-color: white;
+   display: block;
+   width: 100%; 
+   border-radius: 50px;
+   border: 0px;
+   width: 80%;
+
+}
+.answerList:hover, .answerList:focus {
+    background-color: rgb(243, 243, 243);
+}
+.fadeIn {
+    animation: fadeIn;
+    animation-duration: 0.5s;
+}
+.fadeOut {
+    animation: fadeOut;
+    animation-duration: 0.5s;
+}
+.status {
+    height: 30px;
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+}
+.statusBar {
+    height: 100%;
+    /*background-color: rgb(244, 255, 149);*/
+    background-color: #ffdd00;
+    border-radius: 20px;
+}
+#result {
+    display: none;
+}
+.header{
+    width:auto;
+    display:flex;
+    height: 86px;
+   }
+   
+   .header h2 {
+    margin-top: 20px;
+    color: navy;
+    font-weight: bold;
+   }
+   
+   .nav{
+   display: flex;
+   justify-content: flex-end;
+   /*width:calc(1200px - 30px);*/
+   line-height: 86px;
+   margin-left: 515px;
+   
+   }
+   .nav > li {
+   margin-left:60px;
+   list-style: none;
+   
+   }
+   
+   .nav > li > a {
+   color:black;
+  
+   }
+   .nav > li > a:hover{
+       color: rgb(136, 136, 136);
+   }
+.logo {
+    font-family: 'Fredoka One', cursive;
+    margin-left: 20px;
+    
+}   
+a{
+    text-decoration-line: none;
+    color: white;
+
+}

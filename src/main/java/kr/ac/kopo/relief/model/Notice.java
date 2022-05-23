@@ -13,14 +13,6 @@ public class Notice {
 	private Date editDate;
 	private String adminId;
 	private String cAdminId;
-	
-	public String getcAdminId() {
-		return cAdminId;
-	}
-
-	public void setcAdminId(String cAdminId) {
-		this.cAdminId = cAdminId;
-	}
 
 	public int getNcode() {
 		return ncode;
@@ -70,4 +62,13 @@ public class Notice {
 	public void setAdminId(String adminId) {
 		this.adminId = adminId;
 	}
+		
+	public String getcAdminId() {
+		return cAdminId;
+	}
+
+	public void setcAdminId(String cAdminId) {
+		this.cAdminId = cAdminId;
+	}
+
 }

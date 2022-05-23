@@ -29,7 +29,7 @@
 	<insert id="add">					
 	<!-- #{adminId} , #{cAdminId}-->
 		INSERT INTO notice 
-		VALUES (NULL, #{title}, #{contents}, now(), now(), null, null)
+		VALUES (NULL, #{title}, #{contents}, now(), now(), null)
 	</insert>
 	
 	<update id="update">
