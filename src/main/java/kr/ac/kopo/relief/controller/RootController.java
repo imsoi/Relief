@@ -24,17 +24,17 @@ public class RootController {
       return "index";
    }
    
-   @RequestMapping("/qna")
+   @GetMapping("/qna")
    public String qna() {
 	   return "qna";
    }
    
-   @RequestMapping("/introduce")
+   @GetMapping("/introduce")
    public String introduce() {
       return "introduce";
    }
    
-   @RequestMapping("/service")
+   @GetMapping("/service")
    public String service() {
       return "service";
    }
@@ -81,11 +81,6 @@ public class RootController {
          return "OK";
       else
          return "FAIL";
-   }
-   
-   @GetMapping("/profile")
-   public String profile() {
-      return "profile";
    }
    
    @RequestMapping("/logout")

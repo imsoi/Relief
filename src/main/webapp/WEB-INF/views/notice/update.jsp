@@ -1,15 +1,57 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="/resources/css/nav.css">
-<link rel="stylesheet" type= "text/css" href="/resources/css/notice.css">
-<title></title>
+    <title></title>
+    <!-- JQuery -->	
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    
+    <!-- include libraries(jQuery, bootstrap) -->
+<!--<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">  -->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+ 	<!-- include summernote css/js-->
+	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type= "text/css" href="/resources/css/notice.css">
+
+	<script>
+	$(function(){
+		$("#summernote").summernote({
+			height: 300,
+			placeholder: '공지 내용을 입력해 주세요.'
+	 	}); 
+		
+/* 		$("#add_image").click(function(){
+			const div = $("<div>").addClass("mb-3")
+			const label = $("<label>").text("제품 이미지: ");
+			const button = $("<span>").text("삭제");
+			button.addClass("btn btn-outline-danger btn-sm");
+			const file = $("<input>").attr("type","file");
+			file.attr("name", "productImage");
+			file.addClass("form-control");	
+			
+			
+			button.click(function(){
+				$(this).parent().remove();
+			});
+			
+			div.append(label);
+			div.append(button);
+			div.append(file);
+			
+			$("form > div:last-child").before(div);
+			
+			console.log($("form > div:last-child"));
+		}); */
+	});
+	
+</script>
 </head>
 <body>
 
@@ -18,7 +60,7 @@
 			<ul class="nav">
 				<li><a href = "/service">릴리프 서비스</a></li>
 				<li><a href = "/introduce">릴리프 소개</a></li>
-				<li><a href = "/test/list">테스트하기</a></li>
+				<li><a href = "/qna">테스트하기</a></li>
 				<li><a href = "/notice/list">공지사항</a></li>
 				<li style="margin-left: 520px"><a href="/login">로그인</a></li>
             	<li><a href="/signup">회원가입</a></li>
@@ -26,12 +68,13 @@
 	</div>
 
 	<article>
-		<section class="notice">
-		<div class="page-title">
-			<div class="container">
-			    <h3>공지사항</h3>
-			</div>
-		 </div>
+		<section class="notice"">
+			<div class="page-title">
+				<div class="container">
+				    <h4 style="font-weight: bold;">NOTICE</h4><br>
+				    <p style="margin-top: -25px;">공지사항 변경</p>
+				</div>
+			 </div>
 	
 		<div class="container">
 			<form method="post">
@@ -40,14 +83,14 @@
 				<input type="text" class="form-control" name="title" value="${item.title}" placeholder="제목을 입력해 주세요">
 			</div>
 
-<!-- 			<div class="mb-3">
-				<label>작성자</label> 
-				<input type="text" class="form-control" name="admin" value="관리자" readonly="readonly" style="background-color: white;">
-			</div> -->
-
 			<div class="mb-3">
 				<label>내용</label>
-				<textarea class="form-control" rows="10" name="contents" placeholder="내용을 입력해 주세요">${item.contents}</textarea>
+				<textarea id="summernote" class="form-control" name="contents" rows="10" placeholder="내용을 입력해 주세요">${item.contents}</textarea>
+			</div>
+			
+			<div class="mb-3">
+				<label>첨부파일 (이미지 형식) <span id = "add_image" class="btn btn-outline-primary btn-sm">추가</span></label>
+				<input type="file" name="productImage" class="form-control">	
 			</div>
 			
 			<div style="text-align: center; margin-top: 50px">

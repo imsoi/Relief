@@ -1,26 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
     <title></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" type= "text/css" href="/resources/css/service.css">
+<title></title>
 </head>
 <body>
-    
     <div class="header">
         <h2 class="logo"><a href = "/" style="color: #4c4c4c;">RELIEF</a></h2>
            <ul class="nav">
               <li><a href = "/service">릴리프 서비스</a></li>
               <li><a href = "/introduce">릴리프 소개</a></li>
-              <li><a href = "/test/list">테스트하기</a></li>
+              <li><a href = "/qna">테스트하기</a></li>
               <li><a href = "/notice/list">공지사항</a></li>
               <li style="margin-left: 520px"><a href="/login">로그인</a></li>
                  <li><a href="/signup">회원가입</a></li>
@@ -32,7 +27,7 @@
             <h2>RELIEF SERVICE</h2><br>
             <p>우리는 하루 중 가장 많은 시간을 일을 하며 보냅니다. <br>
                 직원들 마음 관리도 필요한 지금! 서비스를 신청하세요.<br>
-                릴리프에서 <b style="font-size: 18px;">워케이션 적합자</b>를 찾아드립니다.</p>
+                릴리프에서 <b style="font-size: 18px; text-decoration: underline;">워케이션 적합자</b>를 찾아드립니다.</p>
         </div>
     </div>
 
@@ -64,7 +59,6 @@
             <img src="/resources/images/graph.png" >
         </div>
     </div>
-
 
 <footer class="footer">
     <div class="ft1">

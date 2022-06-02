@@ -20,16 +20,15 @@
 </head>
 <body>
     <div class="header">
-  		<h2 class="logo"><a href = "/" style="text-decoration: none; color: black;">RELIEF</a></h2>
+  		<h2 class="logo"><a href = "/" style="text-decoration: none; color : #4c4c4c;">RELIEF</a></h2>
       		<ul class="nav">
            	<li><a href = "/service">릴리프 서비스</a></li>
 			<li><a href = "/introduce">릴리프 소개</a></li>
 			<li><a href = "/qna">테스트하기</a></li>
 			<li><a href = "/notice/list">공지사항</a></li>
-          </ul>
-          
-         <c:if test="${sessionScope.member != null}">
-				<div>
+			
+			<c:if test="${sessionScope.member != null}">
+				<div style="margin-left:350px;">
 					${sessionScope.member.name} 님 환영합니다 !
 				</div>
 				<div>
@@ -38,16 +37,21 @@
 				<div>
 					<a href="/logout" style="color: black;">로그아웃</a>
 				</div>
-		</c:if>
-		
-		<c:if test="${sessionScope.member == null}">
-			<div>
-				<a href="/signup" style="color: black;">회원가입</a>
-			</div>
-			<div>
-				<a href="/login" style="color: black;">로그인</a>
-			</div>
-		</c:if>
+			</c:if>
+			
+			<c:if test="${sessionScope.member == null}">
+				<div style="margin-left: 520px;">
+					<a href="/signup" style="color: black;">회원가입</a>
+				</div>
+				<div style="padding-left: 50px">
+					<a href="/login" style="color: black;">로그인</a>
+				</div>
+			</c:if>
+			</li>
+          </ul>
+          
+         
+         
 			
 	</div>
     <div class="idx1">
@@ -56,7 +60,7 @@
     <section id="idx2" class="mx-auto my-5 py-3">
     <div>
         <h2>스마트한 비대면 분석, <span style="color: #ffdd00;">릴리프</span></h2>
-        <p style="font-weight:500";>릴리프는 전문적인 검사와 통계를 통해 워케이션 대상자를 선정합니다.<br>
+        <p style="font-weight:500;">릴리프는 전문적인 검사와 통계를 통해 워케이션 대상자를 선정합니다.<br>
         릴리프는 당신의 모든 일상을 응원합니다.</p>   
     </div>
 </section>
@@ -67,7 +71,7 @@
         <p style="font-weight:500;">업무능률도 오르고 생산성도<br>
         높아져 기업과 개인 모두가<br>
         만족하는 프로그램 입니다!</p>
-        <button>테스트 하러 가기</button>
+        <a href="/qna"><button>테스트 하러 가기</button></a>
         </span>
 
         <img src="/resources/images/index1.jpg" class="img3">

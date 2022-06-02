@@ -3,39 +3,54 @@ body {
 }
 
 /* header */
-.header{
+
+   .header{
     width:auto;
     display:flex;
     height: 86px;
-}
-
-.header h2 {
+   }
+   
+   .header h2 {
     margin-top: 20px;
-    color: navy;
     font-weight: bold;
-}
+   }
+   
+   .nav{
+   display: flex;
+   justify-content: flex-end;
+   /*width:calc(1200px - 30px);*/
+   line-height: 86px;
+   margin-left: 515px;
+   
+   }
+   .nav > li {
+   margin-left:60px;
+   list-style: none;
+   
+   }
+   
+   .nav > li > a {
+   color:black;
+  
+   }
+   .nav > li > a:hover{
+       color: rgb(136, 136, 136);
+   }
 .logo {
     font-family: 'Fredoka One', cursive;
-    margin-left: 20px; 
-} 
-
-.nav{
-    display: flex;
-    justify-content: flex-end;
-    /*width:calc(1200px - 30px);*/
-    line-height: 86px;
-    margin-left: 515px;
+    margin-left: 20px;
+    
+}   
+a{
+    text-decoration-line: none;
+    color: white;
 }
-.nav > li {
-    margin-left:60px;
-    list-style: none;
-}
-.nav > li > a {
-    color:black;
-}
-.nav > li > a:hover{ /* 마우스 갖다대면 컬러바뀜 -- 네비링크*/
-    color: rgb(136, 136, 136);
-}
+  
+  
+  
+  
+  
+  
   
 /* body */
 .about{

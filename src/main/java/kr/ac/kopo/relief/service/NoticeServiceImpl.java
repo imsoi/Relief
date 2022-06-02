@@ -36,6 +36,7 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public Notice item(int ncode) {
 		return dao.item(ncode);
+		
 	}
 
 	@Override

@@ -53,7 +53,7 @@
 		 </div>
 		 <div class="mb-3 mx-auto" style="width:17%;">
                     <label>비밀번호</label>
-                    <input class="form-control" name="passwd" type="password" class="form-control" placeholder="문자/숫자/특수문사 포함 8~15자" style=" border: 1px solid black;">
+                    <input class="form-control" name="passwd" type="password" class="form-control" placeholder="비밀번호를 입력해주세요" style=" border: 1px solid black;">
 		  </div>
 		 
 		  <c:if test="${msg != null}">

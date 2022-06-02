@@ -2,16 +2,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
     <title></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" type= "text/css" href="/resources/css/introduce.css">
+<title></title>
 </head>
 <body>
     
@@ -20,7 +16,7 @@
            <ul class="nav">
               <li><a href = "/service">릴리프 서비스</a></li>
               <li><a href = "/introduce">릴리프 소개</a></li>
-              <li><a href = "/test/list">테스트하기</a></li>
+              <li><a href = "/qna">테스트하기</a></li>
               <li><a href = "/notice/list">공지사항</a></li>
               <li style="margin-left: 520px"><a href="/login">로그인</a></li>
                  <li><a href="/signup">회원가입</a></li>
@@ -30,9 +26,9 @@
      <div>
         <div class="about">
             <h2>ABOUT RELIEF</h2><br>
-            <p><b style="font-size: 18px;">릴리프</b>는<br>
-                빅데이터와 IT기술을 적용하여 체계적으로 진단하는 워케이션 <br>
-                대상자 선정 서비스를 제공하는 기업입니다.</p>
+            <p>릴리프 는<br>
+                빅데이터와 IT기술을 적용하여 체계적으로 진단하는 <br> 
+                <b style="font-size: 18px; text-decoration: underline;">워케이션 대상자 선정 서비스</b>를 제공하는 기업입니다.</p>
         </div>
     </div>
 

@@ -1,14 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="/resources/css/nav.css">
-<link rel="stylesheet" type= "text/css" href="/resources/css/notice.css">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type= "text/css" href="/resources/css/notice.css">
 <title></title>
 
 	<script>
@@ -28,7 +29,7 @@
 			<ul class="nav">
 				<li><a href = "/service">릴리프 서비스</a></li>
 				<li><a href = "/introduce">릴리프 소개</a></li>
-				<li><a href = "/test/list">테스트하기</a></li>
+				<li><a href = "/qna">테스트하기</a></li>
 				<li><a href = "/notice/list">공지사항</a></li>
 				<li style="margin-left: 520px"><a href="/login">로그인</a></li>
             	<li><a href="/signup">회원가입</a></li>
@@ -37,30 +38,30 @@
 
 	<article>
 		<section class="notice">
-		<div class="page-title">
-			<div class="container">
-			    <h3>공지사항</h3>
-			</div>
-		 </div>
+			<div class="page-title">
+				<div class="container">
+				    <h4 style="font-weight: bold;">NOTICE</h4><br>
+				    <p style="margin-top: -25px;">공지사항 확인</p>
+				</div>
+			 </div>
 	
 		<div class="container">
 			<form method="post">
-			<div class="mb-3">
-				<label>제목</label> 
-				<input value="${item.title}" class="form-control" name="title" readonly="readonly" style="background-color: white;">
-			</div>
-
-<!-- 			<div class="mb-3">
-				<label>작성자</label> 
-				<input type="text" class="form-control" name="admin" value="관리자" readonly="readonly" style="background-color: white;">
-			</div> -->
-
-			<div class="mb-3">
-				<label>내용</label>
-				<textarea class="form-control" rows="10" name="contents" readonly="readonly" style="background-color: white;">${item.contents}</textarea>
+			<div class="mb-3" style="border-top: 1px solid #ccc;">
+				<label style="margin-top: 10px;">공지 제목 ㅣ&nbsp;</label>
+				<span>${item.title}</span>
 			</div>
 			
-			<div style="text-align: center; margin-top: 50px">
+			<div class="mb-3" style="border-bottom: 1px solid #ccc;">
+				<label style="margin-bottom: 10px;">작성 일자 ㅣ&nbsp;</label> 
+				<span><fmt:formatDate value="${item.regDate}" pattern="yy.MM.dd"/></span>
+			</div>
+
+			<div class="mb-3" style="border-bottom: 1px solid #ccc;">
+				<span>${item.contents}</span>
+			</div>
+			
+			<div style="text-align: center; margin-top: 80px;">
 				<a class="btn btn-sm btn-dark" href="/notice/list" style="color: white; ">목록</a>
 			</div>
 			</form>

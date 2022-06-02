@@ -11,8 +11,7 @@ public class Notice {
 	@DateTimeFormat(pattern = "YYYY년 MM월 dd일")
 	private Date regDate;
 	private Date editDate;
-	private String adminId;
-	private String cAdminId;
+	private String id;
 
 	public int getNcode() {
 		return ncode;
@@ -55,20 +54,11 @@ public class Notice {
 		this.editDate = editDate;
 	}
 
-	public String getAdminId() {
-		return adminId;
+	public String getId() {
+		return id;
 	}
 
-	public void setAdminId(String adminId) {
-		this.adminId = adminId;
+	public void setId(String id) {
+		this.id = id;
 	}
-		
-	public String getcAdminId() {
-		return cAdminId;
-	}
-
-	public void setcAdminId(String cAdminId) {
-		this.cAdminId = cAdminId;
-	}
-
 }

@@ -8,7 +8,7 @@ public class Member {
    private String dept;
    private String rank;
    private String tel;
-   private int grade;
+   private char grade;
 
    public String getCname() {
       return cname;
@@ -18,11 +18,11 @@ public class Member {
       this.cname = cname;
    }
 
-   public int getGrade() {
+   public char getGrade() {
       return grade;
    }
 
-   public void setGrade(int grade) {
+   public void setGrade(char grade) {
       this.grade = grade;
    }
 

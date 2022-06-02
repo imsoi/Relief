@@ -17,27 +17,30 @@ import kr.ac.kopo.relief.util.Pager;
 @Controller
 @RequestMapping("/notice")
 public class NoticeController {
-	final String path = "/notice";
+	final String path = "notice/";
 	
 	@Autowired
 	NoticeService service;
 	
-	@RequestMapping({"/", "/list"})
+	@GetMapping("/list")
 	public String list(Model model, Pager pager) {
 		List<Notice> list = service.list(pager);
 		
 		model.addAttribute("list", list);
 		
-		return path + "/list";
+		return path + "list";
 	}
 	
 	@GetMapping("/add")
 	public String add() {
-		return path + "/add";
+		return path + "add";
 	}
 	
 	@PostMapping("/add")
 	public String add(Notice item, Model model) {
+		
+		System.out.println(item.getTitle());
+		System.out.println(item.getContents());
 		
 		model.addAttribute("item", item);
 		
@@ -51,7 +54,7 @@ public class NoticeController {
 		
 		model.addAttribute("item", item);
 		
-		return path + "/update";
+		return path + "update";
 	}
 	
 	@PostMapping("/update/{ncode}")
@@ -59,7 +62,7 @@ public class NoticeController {
 		item.setNcode(ncode);
 		service.update(item);
 		
-		return "redirect:/notice/list";
+		return "redirect:../list";
 	}
 	
 	@GetMapping("/delete/{ncode}")
@@ -76,6 +79,6 @@ public class NoticeController {
 
 		model.addAttribute("item", item);
 		
-		return path + "/view";
+		return path + "view";
 	}
 }
