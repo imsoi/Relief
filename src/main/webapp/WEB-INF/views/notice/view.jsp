@@ -66,8 +66,10 @@
 			</div>
 			</form>
 			
+			<%-- <c:if test="${sessionScope.member.grade == 1}">	 --%>
 			<a href="../update/${item.ncode}" class="btn btn-sm btn-dark">변경</a>
 			<button class="btn btn-sm btn-dark" onClick="removeCheck(${item.ncode})" >삭제</button>
+			<%-- </c:if> --%>
 		</div>
 		</section>
 	</article>

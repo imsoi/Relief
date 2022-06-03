@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.multipart.MultipartFile;
 
+import kr.ac.kopo.relief.model.Member;
 import kr.ac.kopo.relief.model.Notice;
 import kr.ac.kopo.relief.service.NoticeService;
 import kr.ac.kopo.relief.util.Pager;
@@ -23,7 +27,8 @@ public class NoticeController {
 	NoticeService service;
 	
 	@GetMapping("/list")
-	public String list(Model model, Pager pager) {
+	public String list(Model model, Pager pager, @SessionAttribute Member member) { //@SessionAttribute 해야함
+		System.out.println(member.getGrade() + "dfdfdfdffd");
 		List<Notice> list = service.list(pager);
 		
 		model.addAttribute("list", list);
@@ -37,14 +42,13 @@ public class NoticeController {
 	}
 	
 	@PostMapping("/add")
-	public String add(Notice item, Model model) {
-		
-		System.out.println(item.getTitle());
-		System.out.println(item.getContents());
+	public String add(Notice item, Model model, @RequestParam("NoticeImage") List<MultipartFile> noticeImage) {
 		
 		model.addAttribute("item", item);
 		
 		service.add(item);
+		
+		
 		return "redirect:list";
 	}
 	

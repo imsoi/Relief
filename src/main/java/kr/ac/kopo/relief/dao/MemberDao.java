@@ -10,4 +10,6 @@ public interface MemberDao {
 
    int checkId(String id);
 
+   Member item(String id);
+
 }

@@ -8,13 +8,10 @@
     <!-- JQuery -->	
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     
-    <!-- include libraries(jQuery, bootstrap) -->
-<!--<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">  -->
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
- 	<!-- include summernote css/js-->
-	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+	<!-- summernote-lite ver -->
+	<script src="/resources/css/summernote/summernote-lite.js"></script>
+	<script src="/resources/css/summernote/lang/summernote-ko-KR.js"></script>
+	<link rel="stylesheet" href="/resources/css/summernote/summernote-lite.css">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
@@ -27,28 +24,45 @@
 			placeholder: '공지 내용을 입력해 주세요.'
 	 	}); 
 		
-/* 		$("#add_image").click(function(){
-			const div = $("<div>").addClass("mb-3")
-			const label = $("<label>").text("제품 이미지: ");
-			const button = $("<span>").text("삭제");
-			button.addClass("btn btn-outline-danger btn-sm");
-			const file = $("<input>").attr("type","file");
-			file.attr("name", "productImage");
-			file.addClass("form-control");	
-			
-			
-			button.click(function(){
-				$(this).parent().remove();
-			});
-			
-			div.append(label);
-			div.append(button);
-			div.append(file);
-			
-			$("form > div:last-child").before(div);
-			
-			console.log($("form > div:last-child"));
-		}); */
+	      $("#add_image").click(function(){
+	          const div = $("<div>").addClass("mt-2")
+	          const label = $("<label>").text("제품 이미지: ");
+	          const button = $("<span>").text("삭제");
+	          button.addClass("btn btn-outline-danger btn-sm");
+	          const file = $("<input>").attr("type","file");
+	          file.attr("name", "productImage");
+	          file.addClass("form-control");   
+	          
+	          
+	          button.click(function(){
+	             $(this).parent().remove();
+	          });
+	          
+	          div.append(label);
+	          div.append(button);
+	          div.append(file);
+	          
+	          
+	          $("form > div:last-child").before(div);
+	       });
+	       
+	       $("button.delete").click(function(){ // 여기서의 this는 button을 가리킴 왜냐면 문맥(일을 시키는 사람)이기 때문에
+	          const code= $(this).data("code");
+	          
+	          $.ajax("../image/delete/" + code, {
+	             method:"GET",
+	             success: function(result) {
+	             	console.log(typeof result);
+	             	console.log(result);
+	             	
+	             	if(result) // ===은 타입과 값이 맞는지 확인, ==은 값만 맞는지 확인
+	             		$("button.delete[data-code='" + code + "']").parent().remove();
+	             },
+	             error: function(jqXhr, status) {
+	             	console.log(status);
+	             }
+	          });
+	       });
 	});
 	
 </script>

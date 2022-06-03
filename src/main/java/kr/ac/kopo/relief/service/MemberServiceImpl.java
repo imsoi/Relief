@@ -42,4 +42,9 @@ public class MemberServiceImpl implements MemberService {
          return false;
    }
 
+@Override
+public Member item(String id) {
+	return dao.item(id);
+}
+
 }

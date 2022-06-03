@@ -13,9 +13,9 @@
 
 	<script>
 		function removeCheck(item) {
-			 if (confirm("정말 삭제하시겠습니까")){ 
-				// let url = location.href.replace("view","delete");
-				 location.href = location.href.replace("view","delete");
+	
+			 if (confirm("정말 삭제하시겠습니까")){   
+				 location.href = "delete/"+item;
 			 }
 			}
 	</script>
@@ -67,21 +67,37 @@
 							<th style="width:500px">제목</th>
 							<th>관리자</th>
 							<th>등록일자</th>
+							
+							<c:if test="${sessionScope.member.grade == 1}">
 							<th style="width:100px;">관리</th>
+							</c:if>
 						</tr>
 					</thead>
 					
 					<tbody>
+						<tr>
+							<td style="font-weight: bold;">공지</td>
+							<td><a href="view/2" style="text-decoration: none;">릴리프 서버 이전 작업</a></td>
+							<td style="font-weight: bold;">RELIEF</td>
+							<td>2022-05-28</td>
+							<c:if test="${sessionScope.member.grade == 1}">	
+							<td>변경 불가</td>
+							</c:if>
+						</tr>
 						<c:forEach var="item" items="${list}">
 							<tr>
 								<td>${item.ncode}</td>
 								<td><a href="view/${item.ncode}" style="text-decoration: none;">${item.title}</a></td>
-								<td style="font-weight: bold;">RELIEF</td>
+								<td style="font-weight: bold;">관리자</td>
 								<td><fmt:formatDate value="${item.regDate}" pattern="yyyy-MM-dd"/></td>
+								
+								<c:if test="${sessionScope.member.grade == 1}">
 								<td>
-								<a href="delete/${item.ncode}" class="btn btn-sm btn-outline-danger" onClick="removeCheck(${item.ncode})">삭제</a> 
+								<a onClick="removeCheck(${item.ncode})" class="btn btn-sm btn-outline-danger">삭제</a> 
 								<a href="update/${item.ncode}" class="btn btn-sm btn-outline-warning">변경</a>
 								</td>
+								</c:if>
+								
 							</tr>
 						 </c:forEach>
 					
@@ -112,10 +128,11 @@
 					
 				</table>
 					
-				<%-- <c:if test="${sessionScope.member.grade == 1}">		</c:if>		 --%>
+				<c:if test="${sessionScope.member.grade == 1}">		
 					<div style="margin-top: 20px">
 					<a href="add" class="btn btn-sm btn-dark">등록</a>
 					</div>
+				</c:if>
 				
 			</div>
 		</div>

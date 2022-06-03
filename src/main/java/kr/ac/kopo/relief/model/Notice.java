@@ -1,6 +1,7 @@
 package kr.ac.kopo.relief.model;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -12,6 +13,15 @@ public class Notice {
 	private Date regDate;
 	private Date editDate;
 	private String id;
+	private List<NoticeImage> images;
+	
+	public List<NoticeImage> getImages() {
+		return images;
+	}
+
+	public void setImages(List<NoticeImage> images) {
+		this.images = images;
+	}
 
 	public int getNcode() {
 		return ncode;

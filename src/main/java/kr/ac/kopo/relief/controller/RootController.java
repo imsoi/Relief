@@ -47,7 +47,10 @@ public class RootController {
    @PostMapping("/login")
    public String login(Member member, RedirectAttributes ra, HttpSession session) {
       if(memberService.login(member)) {
-         session.setAttribute("member", member);
+    	 Member item = memberService.item(member.getId());   //서비스 호출(item) 메퍼가서 id에 해당되는 정보룰 가져옴
+    	 System.out.println(item.getGrade());
+    	 
+         session.setAttribute("member", item); //item 추가함
          return "redirect:.";
       }
       

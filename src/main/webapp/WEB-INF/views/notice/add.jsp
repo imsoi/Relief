@@ -7,14 +7,12 @@
     <title></title>
     <!-- JQuery -->	
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-    
-    <!-- include libraries(jQuery, bootstrap) -->
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
- 	<!-- include summernote css/js-->
-	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+	<!-- summernote-lite ver -->
+	<script src="/resources/css/summernote/summernote-lite.js"></script>
+	<script src="/resources/css/summernote/lang/summernote-ko-KR.js"></script>
+	<link rel="stylesheet" href="/resources/css/summernote/summernote-lite.css">
+	
 	
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
@@ -25,6 +23,29 @@
 			height: 300,
 			placeholder: '공지 내용을 입력해 주세요.'
 	 	}); 
+		
+		$("#add_image").click(function(){
+			const div = $("<div>").addClass("mt-2")
+			const label = $("<label>").text("제품 이미지: ");
+			const button = $("<span>").text("삭제");
+			button.addClass("btn btn-outline-danger btn-sm");
+			const file = $("<input>").attr("type","file");
+			file.attr("name", "productImage");
+			file.addClass("form-control");	
+			
+			
+			button.click(function(){
+				$(this).parent().remove();
+			});
+			
+			div.append(label);
+			div.append(button);
+			div.append(file);
+			
+			$("form > div:last-child").before(div);
+			
+			console.log($("form > div:last-child"));
+		});
 	});
 	
 </script>
@@ -52,7 +73,7 @@
 		 </div>
 	
 		<div class="container">
-			<form method="post">
+			<form method="post" enctype="multipart/form-data">
 			<div class="mb-3">
 				<label>제목</label> 
 				<input type="text" class="form-control" name="title" placeholder="제목을 입력해 주세요">
@@ -65,7 +86,7 @@
 			
 			<div class="mb-3">
 				<label>첨부파일 (이미지 형식) <span id = "add_image" class="btn btn-outline-primary btn-sm">추가</span></label>
-				<input type="file" name="productImage" class="form-control">	
+				<input type="file" name="NoticeImage" class="form-control">	
 			</div>
 			
 			<div style="text-align: center; margin-top: 50px">

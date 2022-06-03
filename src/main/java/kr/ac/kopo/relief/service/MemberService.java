@@ -10,4 +10,6 @@ public interface MemberService {
 
    boolean checkId(String id);
 
+   Member item(String id);
+
 }

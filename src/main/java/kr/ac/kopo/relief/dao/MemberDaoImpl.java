@@ -27,4 +27,9 @@ public class MemberDaoImpl implements MemberDao {
       return sql.selectOne("member.check_id", id);
    }
 
+@Override
+public Member item(String id) {
+	return sql.selectOne("member.item", id);
+}
+
 }
