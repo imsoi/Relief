@@ -68,18 +68,37 @@
 </script>
 </head>
 <body>
-
 	<div class="header">
-		<h2 class="logo"><a href = "/" style="color: #4c4c4c;">RELIEF</a></h2>
-			<ul class="nav">
-				<li><a href = "/service">릴리프 서비스</a></li>
-				<li><a href = "/introduce">릴리프 소개</a></li>
-				<li><a href = "/qna">테스트하기</a></li>
-				<li><a href = "/notice/list">공지사항</a></li>
-				<li style="margin-left: 520px"><a href="/login">로그인</a></li>
-            	<li><a href="/signup">회원가입</a></li>
-			</ul>
-	</div>
+        <h2 class="logo"><a href = "/" style="color: #4c4c4c;">RELIEF</a></h2>
+           <ul class="nav">
+              <li><a href = "/service">릴리프 서비스</a></li>
+              <li><a href = "/introduce">릴리프 소개</a></li>
+              <li><a href = "/qna">테스트하기</a></li>
+              <li><a href = "/notice/list">공지사항</a></li>
+              
+              <c:if test="${sessionScope.member != null}">
+	            <div style="margin-left:350px;">
+	               ${sessionScope.member.name}님 환영합니다 !
+	            </div>
+	            <div>
+	               <a href="/stats" >마이페이지</a>
+	            </div>
+	            <div>
+	               <a href="/logout" style="color: black;">로그아웃</a>
+	            </div>
+	         </c:if>
+	         
+	         <c:if test="${sessionScope.member == null}">
+	            <div style="margin-left: 520px;">
+	               <a href="/signup" style="color: black;">회원가입</a>
+	            </div>
+	            <div style="padding-left: 50px">
+	               <a href="/login" style="color: black;">로그인</a>
+	            </div>
+	         </c:if>
+	         
+           </ul>
+     </div>
 
 	<article>
 		<section class="notice"">

@@ -15,8 +15,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import kr.ac.kopo.relief.model.Member;
 import kr.ac.kopo.relief.model.Notice;
+import kr.ac.kopo.relief.model.NoticeImage;
 import kr.ac.kopo.relief.service.NoticeService;
 import kr.ac.kopo.relief.util.Pager;
+import kr.ac.kopo.relief.util.Uploader;
 
 @Controller
 @RequestMapping("/notice")
@@ -28,7 +30,7 @@ public class NoticeController {
 	
 	@GetMapping("/list")
 	public String list(Model model, Pager pager, @SessionAttribute Member member) { //@SessionAttribute 해야함
-		System.out.println(member.getGrade() + "dfdfdfdffd");
+		/* System.out.println(member.getGrade() + "dfdfdfdffd"); */
 		List<Notice> list = service.list(pager);
 		
 		model.addAttribute("list", list);
@@ -43,11 +45,17 @@ public class NoticeController {
 	
 	@PostMapping("/add")
 	public String add(Notice item, Model model, @RequestParam("NoticeImage") List<MultipartFile> noticeImage) {
-		
-		model.addAttribute("item", item);
-		
-		service.add(item);
-		
+		try { // 배열로 받아오는 방식 2가지 : parameter에서 컨트롤러에서 직접 받으려고 하면 @RequestParam("이름을 정확히 주면됨")/ 옆에거를 쓰기 싫으면 Product를 밑으로 내려보내서 필드를 선언하는 방식
+	         Uploader<NoticeImage> uploader = new Uploader<>();
+	         
+	         List<NoticeImage> images = uploader.makeList(noticeImage, NoticeImage.class);
+	         
+	         item.setImages(images);
+	         
+	         service.add(item);
+	      }catch (Exception e) {
+	         e.printStackTrace();
+	      }
 		
 		return "redirect:list";
 	}

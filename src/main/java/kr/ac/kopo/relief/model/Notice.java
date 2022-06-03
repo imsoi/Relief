@@ -9,7 +9,7 @@ public class Notice {
 	private int ncode;
 	private String title;
 	private String contents;
-	@DateTimeFormat(pattern = "YYYY년 MM월 dd일")
+	@DateTimeFormat(pattern = "YYYY-MM-dd")
 	private Date regDate;
 	private Date editDate;
 	private String id;

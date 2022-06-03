@@ -23,6 +23,24 @@
 	
 	<context:component-scan base-package="kr.ac.kopo.relief" />
 	
-	
+	<interceptors>
+   
+      <interceptor>
+         <mapping path="/qna"/>
+         <mapping path="/notice/list"/>
+         
+         <beans:bean class="kr.ac.kopo.relief.util.UserInterceptor"></beans:bean>
+      </interceptor>
+      
+      <interceptor>
+         <mapping path="/notice/add"/>
+         
+         <exclude-mapping path="/qna"/>
+         <exclude-mapping path="/notice/list"/>
+         
+         <beans:bean class="kr.ac.kopo.relief.util.AdminInterceptor"></beans:bean>
+      </interceptor>
+      
+   </interceptors>
 	
 </beans:beans>

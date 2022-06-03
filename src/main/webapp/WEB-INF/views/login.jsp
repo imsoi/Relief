@@ -57,11 +57,14 @@
 		  </div>
 		 
 		  <c:if test="${msg != null}">
-		  	<p id="msg">${msg}</p>
-		  </c:if>
+           <p id="msg" style="text-align: center; color: red;">${msg}</p>
+        </c:if>
 		  
 		  <button onclick="submit()" class="btn1">로그인</button>
+		
 		</form>
+
+		  <a href="/signup"><button class="btn1">회원가입</button></a>
 	
 
         <footer class="footer">
