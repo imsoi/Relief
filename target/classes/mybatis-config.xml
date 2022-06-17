@@ -12,6 +12,7 @@
 	
 	<mappers>
 		<mapper resource="mybatis/notice.xml" />
+		<mapper resource="mybatis/notice_image.xml" />
 		<mapper resource="mybatis/member.xml" />
 	</mappers> 
 </configuration>

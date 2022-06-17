@@ -12,21 +12,37 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" type= "text/css" href="/resources/css/index.css">
-<title></title>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
-   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-
+	<script>
+	function gologin(){
+		alert("회원만 접근 권한이 있습니다.");
+	}
+</script>
 </head>
 <body>
     <div class="header">
   		<h2 class="logo"><a href = "/" style="text-decoration: none; color: #4c4c4c;">RELIEF</a></h2>
       		<ul class="nav">
-           	<li style="font-weight:400;"><a href = "/service" >릴리프 서비스</a></li>
-			<li style="font-weight:400;"><a href = "/introduce">릴리프 소개</a></li>
-			<li style="font-weight:400;"><a href = "/qna">테스트하기</a></li>
-			<li style="font-weight:400;"><a href = "/notice/list">공지사항</a></li>
+      		<li style="font-weight:400;"><a href = "/service" >릴리프 서비스</a></li>
+      		<li style="font-weight:400;"><a href = "/introduce">릴리프 소개</a></li>
 			
+			<c:if test="${sessionScope.member == null}">
+           		<li style="font-weight:400;"><a onclick="gologin()" href = "/qna">테스트하기</a></li>
+           	</c:if>
+         	<c:if test="${sessionScope.member != null}">
+           		<li style="font-weight:400;"><a href = "/qna">테스트하기</a></li>
+           	</c:if>
+           	
+           	<c:if test="${sessionScope.member == null}">
+           		<li style="font-weight:400;"><a onclick="gologin()" href = "/notice/list">공지사항</a></li>
+           	</c:if>
+         	<c:if test="${sessionScope.member != null}">
+           		<li style="font-weight:400;"><a href = "/notice/list">공지사항</a></li>
+           	</c:if>
+
 			<c:if test="${sessionScope.member != null}">
 				<div style="margin-left:350px;">
 					${sessionScope.member.name} 님 환영합니다 !
@@ -94,10 +110,10 @@
 <div class="ft2">
     <nav class="na">
         <h5 style="font-weight: 600;">릴리프</h5>
-        <a href="#">회사 소개 |</a>
-        <a href="#">서비스 소개 |</a>
-        <a href="#">테스트 |</a>
-        <a href="#">공지사항</a>
+        <a href="/introduce">회사 소개 |</a>
+        <a href="/service">서비스 소개 |</a>
+        <a href="/qna">테스트 |</a>
+        <a href="/notice/list">공지사항</a>
     </nav>
     <p style="font-size: 14px; font-weight: 200;">사업자등록번호: 184-98-12021 <br>
     주소 : 34503 서울특별시 용산구 한남동 123</p>

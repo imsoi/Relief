@@ -6,7 +6,7 @@ public class NoticeImage implements UploadFile {
 	private int icode;
 	private String filename;
 	private String uuid;
-	private int nCode;
+	private int noticeNcode;
 	public int getIcode() {
 		return icode;
 	}
@@ -25,11 +25,11 @@ public class NoticeImage implements UploadFile {
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
 	}
-	public int getnCode() {
-		return nCode;
+	public int getNoticeNcode() {
+		return noticeNcode;
 	}
-	public void setnCode(int nCode) {
-		this.nCode = nCode;
+	public void setNoticeNcode(int noticeNcode) {
+		this.noticeNcode = noticeNcode;
 	}
 	
 	

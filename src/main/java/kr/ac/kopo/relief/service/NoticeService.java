@@ -17,4 +17,6 @@ public interface NoticeService {
 
 	void delete(int ncode);
 
+	boolean deleteImage(int code);
+
 }

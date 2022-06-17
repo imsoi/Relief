@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -29,8 +30,7 @@ public class NoticeController {
 	NoticeService service;
 	
 	@GetMapping("/list")
-	public String list(Model model, Pager pager, @SessionAttribute Member member) { //@SessionAttribute 해야함
-		/* System.out.println(member.getGrade() + "dfdfdfdffd"); */
+	public String list(Model model, Pager pager, @SessionAttribute Member member) { //${sessionScope.member.grade == 1}하려면 @SessionAttribute 해야함
 		List<Notice> list = service.list(pager);
 		
 		model.addAttribute("list", list);
@@ -45,6 +45,7 @@ public class NoticeController {
 	
 	@PostMapping("/add")
 	public String add(Notice item, Model model, @RequestParam("NoticeImage") List<MultipartFile> noticeImage) {
+		System.out.println(item.getTitle());
 		try { // 배열로 받아오는 방식 2가지 : parameter에서 컨트롤러에서 직접 받으려고 하면 @RequestParam("이름을 정확히 주면됨")/ 옆에거를 쓰기 싫으면 Product를 밑으로 내려보내서 필드를 선언하는 방식
 	         Uploader<NoticeImage> uploader = new Uploader<>();
 	         
@@ -90,7 +91,15 @@ public class NoticeController {
 		Notice item = service.item(ncode);
 
 		model.addAttribute("item", item);
-		
+		/* System.out.println(item.getImages().get(0).getFilename()); */
 		return path + "view";
 	}
+	
+	 @ResponseBody
+	 @GetMapping("/image/delete/{icode}")
+	 public boolean deleteImage(@PathVariable int icode) {
+	      
+	    return service.deleteImage(icode);
+	 }
+	
 }

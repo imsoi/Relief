@@ -1,46 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace = "notice">
+<mapper namespace="notice">
 
 	<sql id="search">
 		<where>		
 			<if test="search == 1">
-				title LIKE CONCAT(CONCAT('%', #{keyword}), '%')
+				title LIKE CONCAT('%', CONCAT(#{keyword}, '%'))
 			</if>
 		</where>
 	</sql>
 
-	<select id = "list" resultType="notice">
-		SELECT * FROM notice
-		order by ncode desc
-	<include refid="search"></include> 
-		LIMIT #{offset}, #{perPage}
-	</select>
-	
 	<select id="total" resultType="Integer">
 		SELECT COUNT(*) FROM notice
 	</select>
+
+	<select id = "list" resultType="notice">
+		SELECT notice.*,
+			noticeimage.icode icode, 
+			noticeimage.filename filename, 
+			noticeimage.uuid uuid, 
+			noticeimage.notice_ncode notice_ncode
+		FROM notice LEFT JOIN noticeimage ON ncode=noticeimage.notice_ncode	
+	<include refid="search"></include> 
+		LIMIT #{offset}, #{perPage}
+<!-- 	order by ncode desc -->	
+	</select>
 	
-	<select id="item" resultType="notice">
-		SELECT * FROM notice
-		WHERE ncode=#{ncode}
+	<resultMap type="Notice" id="NoticeMap"><!-- 최종적으로 보내는데이터 -->
+		<id column="ncode" property="ncode"/><!-- column에는 데이터베이스 컬럼 이름을 쓰고, property는 자바 객체의 필드명(model에서 지정한 이름) -->
+		
+	 	<result column="title" property="title"/>
+	 	<result column="contents" property="contents"/>
+	 	<result column="reg_date" property="regDate"/>
+	 	<result column="edit_date" property="editDate"/>
+	 	<result column="id" property="id"/>
+	 	
+	 	<collection property="images" column="notice_ncode" ofType="NoticeImage" javaType="ArrayList"> <!-- 자바타입 컬렉션 클래스를 나타냄. 리스트는 타입에 ArrayList써야함 -->
+	 		<id column="icode" property="icode"/>
+	 		<result column="filename" property="filename"/>
+	 		<result column="uuid" property="uuid"/>
+	 		<result column="notice_ncode" property="noticeNcode"/>
+	 		
+	 	</collection>
+	</resultMap> 
+	
+	<select id="item" resultMap="NoticeMap"> <!--사진을 여러개 넣은경우 가져오는 방법 resultMap을 사용 이름은 resultMap 세팅 시 준 id로 하면 됨 -->
+		SELECT notice.*,
+			noticeimage.icode icode, 
+			noticeimage.filename filename, 
+			noticeimage.uuid uuid, 
+			noticeimage.notice_ncode notice_ncode
+		FROM notice LEFT JOIN noticeimage ON ncode=noticeimage.notice_ncode
+		WHERE notice.ncode=#{ncode}
 	</select>
 	
 	<insert id="add">					
 		INSERT INTO notice 
-		VALUES (NULL, #{title}, #{contents}, now(), now(), #{id})
+		VALUES (NULL, #{title}, #{contents}, now(), now(), null)
+		
+		<selectKey keyProperty="ncode" resultType="Integer" order="AFTER"><!-- order는 insert후에 할거냐 처음에 할거냐 정하는거 mysql은 비포 안해줌 -->
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		
 	</insert>
+		
 	
 	<update id="update">
 		UPDATE notice
 		SET title=#{title}, contents=#{contents}
-		WHERE ncode=#{ncode}
+		WHERE notice.ncode=#{ncode}
 	</update>
 	
 	<delete id="delete">
 		DELETE FROM notice 
-		WHERE ncode=#{ncode}
+		WHERE notice.ncode=#{ncode}
+		
 	</delete>
 	
 </mapper>

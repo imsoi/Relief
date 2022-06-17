@@ -8,6 +8,8 @@
     <title></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" type= "text/css" href="/resources/css/notice.css">
 <title></title>
 
@@ -121,11 +123,11 @@
 							</tr>
 						 </c:forEach>
 					
-						<c:if test="${list.size() < 1}">
+<%-- 						<c:if test="${list.size() < 1}">
 							<tr>
 								<td colspan="4">등록 된 공지사항이 없습니다.</td>
 							</tr>
-						</c:if>
+						</c:if> --%>
 					</tbody>
 					
 					<tfoot>
@@ -157,5 +159,25 @@
 			</div>
 		</div>
 	</section>
+	
+	<footer class="footer">
+	    <div class="ft1">
+	    <p>건강한 기업 성장을 위한 진단도구</p>
+	    <h1>RELIEF</h1>
+	
+		</div>
+		<div class="ft2">
+		    <nav class="na">
+		        <h5 style="font-weight: 600;">릴리프</h5>
+		        <a href="/introduce">회사 소개 |</a>
+		        <a href="/service">서비스 소개 |</a>
+		        <a href="/qna">테스트 |</a>
+		        <a href="/notice/list">공지사항</a>
+		    </nav>
+		    <p style="font-size: 14px; font-weight: 200;">사업자등록번호: 184-98-12021 <br>
+		    주소 : 34503 서울특별시 용산구 한남동 123</p>
+		    <p style="color: rgb(180, 180, 180); font-size: 12px; margin-left: 970px;">© 2022 RELIEF All right reserved.</p>
+		</div>
+	</footer>
 </body>
 </html>

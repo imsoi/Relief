@@ -7,6 +7,8 @@
     <title></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" type= "text/css" href="/resources/css/service.css">
 <title></title>
 </head>
@@ -14,8 +16,8 @@
     <div class="header">
         <h2 class="logo"><a href = "/" style="color: #4c4c4c;">RELIEF</a></h2>
            <ul class="nav">
-              <li><a href = "/service">릴리프 서비스</a></li>
-              <li><a href = "/introduce">릴리프 소개</a></li>
+             <li><a href = "/service">릴리프 서비스</a></li>
+             <li><a href = "/introduce">릴리프 소개</a></li>
               <li><a href = "/qna">테스트하기</a></li>
               <li><a href = "/notice/list">공지사항</a></li>
               
@@ -90,10 +92,10 @@
 <div class="ft2">
     <nav class="na">
         <h5 style="font-weight: 600;">릴리프</h5>
-        <a href="#">회사 소개 |</a>
-        <a href="#">서비스 소개 |</a>
-        <a href="#">테스트 |</a>
-        <a href="#">공지사항</a>
+        <a href="/introduce">회사 소개 |</a>
+        <a href="/service">서비스 소개 |</a>
+        <a href="/qna">테스트 |</a>
+        <a href="/notice/list">공지사항</a>
     </nav>
     <p style="font-size: 14px; font-weight: 200;">사업자등록번호: 184-98-12021 <br>
     주소 : 34503 서울특별시 용산구 한남동 123</p>

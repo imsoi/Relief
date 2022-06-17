@@ -15,6 +15,8 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" type= "text/css" href="/resources/css/notice.css">
 
 	<script>
@@ -30,7 +32,7 @@
 	          const button = $("<span>").text("삭제");
 	          button.addClass("btn btn-outline-danger btn-sm");
 	          const file = $("<input>").attr("type","file");
-	          file.attr("name", "productImage");
+	          file.attr("name", "noticeImage");
 	          file.addClass("form-control");   
 	          
 	          
@@ -52,6 +54,7 @@
 	          $.ajax("../image/delete/" + code, {
 	             method:"GET",
 	             success: function(result) {
+	            	 alert(result);
 	             	console.log(typeof result);
 	             	console.log(result);
 	             	
@@ -118,12 +121,23 @@
 
 			<div class="mb-3">
 				<label>내용</label>
-				<textarea id="summernote" class="form-control" name="contents" rows="10" placeholder="내용을 입력해 주세요">${item.contents}</textarea>
+				<textarea id="summernote" class="form-control" name="contents" placeholder="내용을 입력해 주세요">${item.contents}</textarea>
 			</div>
+			
+			<div>
+            <ul>
+               <c:if test="${item.images == null || item.images.size() < 1}">
+                  <li>등록 된 제품이미지가 없습니다.</li>
+               </c:if>
+               <c:forEach var="image" items="${item.images}">
+                  <li>${image.filename}<button type="button" class="btn btn-outline-danger btn-sm delete" data-code="${image.icode}"> 삭제</button></li>
+               </c:forEach>
+            </ul>
+         </div>
 			
 			<div class="mb-3">
 				<label>첨부파일 (이미지 형식) <span id = "add_image" class="btn btn-outline-primary btn-sm">추가</span></label>
-				<input type="file" name="productImage" class="form-control">	
+				<input type="file" name="noticeImage" class="form-control">	
 			</div>
 			
 			<div style="text-align: center; margin-top: 50px">
@@ -134,4 +148,24 @@
 		</section>
 	</article>
 </body>
+	
+	<footer class="footer">
+	    <div class="ft1">
+	    <p>건강한 기업 성장을 위한 진단도구</p>
+	    <h1>RELIEF</h1>
+	
+		</div>
+		<div class="ft2">
+		    <nav class="na">
+		        <h5 style="font-weight: 600;">릴리프</h5>
+		        <a href="/introduce">회사 소개 |</a>
+		        <a href="/service">서비스 소개 |</a>
+		        <a href="/qna">테스트 |</a>
+		        <a href="/notice/list">공지사항</a>
+		    </nav>
+		    <p style="font-size: 14px; font-weight: 200;">사업자등록번호: 184-98-12021 <br>
+		    주소 : 34503 서울특별시 용산구 한남동 123</p>
+		    <p style="color: rgb(180, 180, 180); font-size: 12px; margin-left: 970px;">© 2022 RELIEF All right reserved.</p>
+		</div>
+	</footer>
 </html>
