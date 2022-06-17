@@ -22,9 +22,10 @@
 			noticeimage.uuid uuid, 
 			noticeimage.notice_ncode notice_ncode
 		FROM notice LEFT JOIN noticeimage ON ncode=noticeimage.notice_ncode	
+		<!-- order by ncode desc -->
 	<include refid="search"></include> 
 		LIMIT #{offset}, #{perPage}
-<!-- 	order by ncode desc -->	
+		
 	</select>
 	
 	<resultMap type="Notice" id="NoticeMap"><!-- 최종적으로 보내는데이터 -->
@@ -75,7 +76,6 @@
 	<delete id="delete">
 		DELETE FROM notice 
 		WHERE notice.ncode=#{ncode}
-		
 	</delete>
 	
 </mapper>

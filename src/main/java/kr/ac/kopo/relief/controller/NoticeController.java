@@ -97,9 +97,14 @@ public class NoticeController {
 	
 	 @ResponseBody
 	 @GetMapping("/image/delete/{icode}")
-	 public boolean deleteImage(@PathVariable int icode) {
-	      
-	    return service.deleteImage(icode);
+	 public String deleteImage(@PathVariable int icode) {
+	      System.out.println(service.deleteImage(icode));
+	    boolean result = service.deleteImage(icode);
+	    
+	    if(result)
+	    	return "true";
+	    else
+	    	return "false";
 	 }
 	
 }

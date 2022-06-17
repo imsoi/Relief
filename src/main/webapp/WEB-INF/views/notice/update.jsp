@@ -48,18 +48,19 @@
 	          $("form > div:last-child").before(div);
 	       });
 	       
-	       $("button.delete").click(function(){ // 여기서의 this는 button을 가리킴 왜냐면 문맥(일을 시키는 사람)이기 때문에
+	       $("button.delete").click(function(){ // 여 기서의 this는 button을 가리킴 왜냐면 문맥(일을 시키는 사람)이기 때문에
 	          const code= $(this).data("code");
 	          
 	          $.ajax("../image/delete/" + code, {
 	             method:"GET",
 	             success: function(result) {
-	            	 alert(result);
+	            	
 	             	console.log(typeof result);
 	             	console.log(result);
 	             	
-	             	if(result) // ===은 타입과 값이 맞는지 확인, ==은 값만 맞는지 확인
-	             		$("button.delete[data-code='" + code + "']").parent().remove();
+	             	if(result){ // ===은 타입과 값이 맞는지 확인, ==은 값만 맞는지 확인
+	             		$("button.delete[data-code='"+code+"']").parent().remove();
+	             	}
 	             },
 	             error: function(jqXhr, status) {
 	             	console.log(status);
